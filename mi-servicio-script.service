@@ -1,0 +1,11 @@
+[Unit]
+Description=Script service
+After=network.target network-online.target
+After=postgresql.service mariadb.service mysql.service
+Wants=network-online.target
+
+[Service]
+ExecStart=/home/pi/Scripts/ejecutarScript.sh
+[Install]
+WantedBy=multi-user.target
+
