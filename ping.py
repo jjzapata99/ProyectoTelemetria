@@ -10,7 +10,7 @@ cur= db.cursor()
 #Se crea conexion con el broadlink
 #En el siguiente comando se especifica la ip del broadlink y posterior autorizacion
 
-device = broadlink.hello('192.168.0.100')
+device = broadlink.hello('192.168.0.104')
 
 device.auth()
 
@@ -71,7 +71,6 @@ while True:
         serversI+=1
      #Se agrega la lectura a la base de datos
     cur.execute("""INSERT INTO estadosFinal(srv1,srv2,srv3,srv4,srv5,srv6,srv7, srv8) VALUES (%s,%s,%s,%s,%s,%s,%s,%s);""",(str(serv1),str(serv2),str(serv3),str(serv4),str(serv5),str(serv6),str(serv7),str(serv8)))
-    db.commit()
     if serversF!=serversI:
         if serversI <= 2:
             if temp==17:
@@ -91,9 +90,9 @@ while True:
             elif temp==24:
                 device.send_data(alto)
             temp=17
-    if temp != tempf:
-        cur.execute("""INSERT INTO temperaturaAire(temperatura) VALUES (%s);""",(temp))
-        db.commit()
+    cur.execute("""INSERT INTO temperaturaAire(temperatura) VALUES (%s);""",(str(temp),))
+    db.commit()
+
     tempf=temp
     serversF= serversI
     serversI=0
