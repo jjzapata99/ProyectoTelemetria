@@ -11,5 +11,7 @@ Dentro del archivo .py existen variables que pueden ser modificadas a convenienc
 Factores a considerar por posibles problemas de funcionamiento son:
   -En cuanto a la base de datos, las credenciales y la dirección donde se aloja la base de datos.
   -El dispositivo broadlink tiende a variar su ip despues de unos días, es recomendable asignarle una ip estatica, este cambio de ip suele traer problemas al momento de ejecutar el codigo ya que no se lograra comunicar con el dispositivo.
+  
 #sensorTemp.py
+
 En este codigo se encuentra la lectura y subida de la información obtenida a la base de datos MySQL, el codigo es relativamente sencillo y sin muchas complicaciones, como en el caso anterior posibles complicaciones pueden deberse a la conectibilidad con la base de datos.
